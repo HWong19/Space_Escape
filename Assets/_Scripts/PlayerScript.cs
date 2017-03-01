@@ -5,31 +5,38 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
 
-
+    public Color initialColor;
 	public int playerID;
 	public float speed;
 	public int startingHealth;
 	public Slider hpBar;
 	public Text hpText;
 
-    public _PowerUps activatedPowerUp = null;
+    private Rigidbody rgb;
 
 	private float currentHealth;
+    private bool shieldUp;
+
 	// Use this for initialization
 	void Start () {
 		currentHealth = startingHealth;
 		hpText.text = "Health: " + currentHealth;
+
+        rgb = GetComponent<Rigidbody>();
+        initialColor = GetComponent<Renderer>().material.color;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if (playerID == 1) {
-            print(speed);
+            
 			if (Input.GetKey ("w")) {
-				transform.Translate (new Vector3 (0f, speed * Time.deltaTime, 0f));
+                rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
+				//transform.Translate (new Vector3 (0f, speed * Time.deltaTime, 0f));
 			} else if (Input.GetKey ("s")) {
-				transform.Translate (new Vector3 (0f, -speed * Time.deltaTime, 0f));
+                rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
+                //transform.Translate (new Vector3 (0f, -speed * Time.deltaTime, 0f));
 			}
 		} else if (playerID == 2) {
 			if (Input.GetKey ("up")) {
@@ -48,7 +55,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.CompareTag("Obstacle"))
+		if(other.gameObject.CompareTag("Obstacle") && !shieldUp)
 		{
 			currentHealth = currentHealth - 1;
 			hpBar.value = currentHealth/startingHealth;
@@ -64,4 +71,8 @@ public class PlayerScript : MonoBehaviour {
             Destroy(other.gameObject);
         }
 	}
+
+    public void changeShieldUp(bool activate) {
+        shieldUp = activate;
+    }
 }

@@ -5,9 +5,11 @@ using UnityEngine;
 public abstract class _PowerUps : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
-	}
+	public void Start () {
+        PlayerScript player = GetComponent<PlayerScript>();
+        if (player)
+            activate(player);
+    }
 
     //void OnTriggerEnter(Collider collided) {
     //    if (collided.tag == "Player") {

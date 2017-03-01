@@ -10,9 +10,7 @@ public class SpeedUp : _PowerUps {
 
 	// Use this for initialization
 	void Start () {
-        PlayerScript player = GetComponent<PlayerScript>();
-        if (player)
-            activate(player);
+        base.Start();
 	}
 
     protected override void activate(PlayerScript player) {
