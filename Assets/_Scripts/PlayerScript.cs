@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour {
 	public Slider hpBar;
 	public Text hpText;
 
+    public _PowerUps activatedPowerUp = null;
+
 	private float currentHealth;
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 
 		if (playerID == 1) {
+            print(speed);
 			if (Input.GetKey ("w")) {
 				transform.Translate (new Vector3 (0f, speed * Time.deltaTime, 0f));
 			} else if (Input.GetKey ("s")) {
@@ -53,6 +56,12 @@ public class PlayerScript : MonoBehaviour {
 			if (currentHealth == 0) {
 				//gameover
 			}
-		}
+		} else {
+            _PowerUps power = other.GetComponent<_PowerUps>();
+            if (!power)
+                return;
+            gameObject.AddComponent(   power.GetType()   );
+            Destroy(other.gameObject);
+        }
 	}
 }
