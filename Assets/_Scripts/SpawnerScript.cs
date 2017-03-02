@@ -14,6 +14,13 @@ public class SpawnerScript : MonoBehaviour {
 
 	private float lastObstacleSpawnTime;
 	private float restPeriod;
+
+    private float speedUpInterval = 10f;
+    private float speedUpTimer = 0f;
+    public float speedUpMultiplier = 1.25f;
+
+    public int speedUpMultipleCap = 8;
+
 	// Use this for initialization
 	void Start () {
 		lastObstacleSpawnTime = 0f;
@@ -25,33 +32,43 @@ public class SpawnerScript : MonoBehaviour {
 		if (Time.time - lastObstacleSpawnTime > restPeriod) {
 			SpawnObstacle ();
 		}
+        speedUpTimer += Time.deltaTime;
 	}
 
 	void SpawnObstacle(){
 		float rng = Random.value;
+        GameObject instantiatedObject = null;
+        int speedUpTimeMultiple = (int)(speedUpTimer / speedUpInterval);
+        if (speedUpTimeMultiple > speedUpMultipleCap)
+            speedUpTimeMultiple = speedUpMultipleCap;
 
 		if (rng < 0.5f) {
 			InstantiateCapsule (5);
 			restPeriod = 5f;
 		} else if (rng < 0.6f) {
-			Instantiate (twoWall, gameObject.transform.position, new Quaternion());
+			instantiatedObject = Instantiate (twoWall, gameObject.transform.position, new Quaternion());
 			restPeriod = 3f;
 		} else if (rng < 0.7f) {
-			Instantiate (threeWall, gameObject.transform.position, new Quaternion());
+            instantiatedObject = Instantiate(threeWall, gameObject.transform.position, new Quaternion());
 			restPeriod = 3f;
 		} else if (rng < 0.8f) {
-			Instantiate (diamond, gameObject.transform.position, new Quaternion());
+            instantiatedObject = Instantiate(diamond, gameObject.transform.position, new Quaternion());
 			restPeriod = 5f;
 		} else if (rng < 0.9f) {
-			Instantiate (doubleV, gameObject.transform.position, new Quaternion());
+            instantiatedObject = Instantiate(doubleV, gameObject.transform.position, new Quaternion());
 			restPeriod = 5f;
 		} else {
-			Instantiate (xObstacle, gameObject.transform.position, new Quaternion());
+            instantiatedObject = Instantiate(xObstacle, gameObject.transform.position, new Quaternion());
 			restPeriod = 5f;
 		}
 
+        if (instantiatedObject) {
+            ObstacleMovementScript obsMovement = instantiatedObject.GetComponent<ObstacleMovementScript>();
+            obsMovement.speed = obsMovement.speed * (speedUpMultiplier * speedUpTimeMultiple);
+        }
 		lastObstacleSpawnTime = Time.time;
-	}
+        restPeriod = restPeriod / ( (speedUpTimeMultiple == 0 ? 1 : speedUpTimeMultiple) * 1.5f );
+    }
 
 	void InstantiateCapsule(int num)
 	{
@@ -60,6 +77,8 @@ public class SpawnerScript : MonoBehaviour {
 			item = Instantiate (capsule, gameObject.transform.position, new Quaternion());
 			item.transform.Translate (new Vector3(Random.Range(0,10), Random.Range (-5, 5), 0f));
 			item.transform.Rotate (new Vector3 (0f, 0f, Random.Range (0, 355)));
+
+            item.GetComponent<ObstacleMovementScript>().speed *= ((speedUpMultiplier / 1.3f) * speedUpMultiplier);
 		}
 	}
 }

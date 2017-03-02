@@ -1244,6 +1244,7 @@ MonoBehaviour:
   startingHealth: 3
   hpBar: {fileID: 98397521}
   hpText: {fileID: 705697918}
+  invincibileTime: 3
 --- !u!54 &1495915393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1806,6 +1807,7 @@ MonoBehaviour:
   startingHealth: 3
   hpBar: {fileID: 1717794842}
   hpText: {fileID: 1820985630}
+  invincibileTime: 3
 --- !u!54 &1833493314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1855,6 +1857,8 @@ MonoBehaviour:
   diamond: {fileID: 1101738320644582, guid: 26c4117aa9a7eaf47b011130c0592c7d, type: 2}
   doubleV: {fileID: 1334571634026050, guid: b67704d064d8bcf429eeaccdeebb6202, type: 2}
   xObstacle: {fileID: 1434370337281246, guid: a26208e2a8a30784b859da38d0e675dc, type: 2}
+  speedUpMultiplier: 1.25
+  speedUpMultipleCap: 8
 --- !u!4 &1982573965
 Transform:
   m_ObjectHideFlags: 0

@@ -13,9 +13,12 @@ public class PlayerScript : MonoBehaviour {
 	public Text hpText;
 
     private Rigidbody rgb;
+    private Renderer rend;
 
 	private float currentHealth;
     private bool shieldUp;
+    private bool invincible;
+    public float invincibileTime = 3f;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +26,10 @@ public class PlayerScript : MonoBehaviour {
 		hpText.text = "Health: " + currentHealth;
 
         rgb = GetComponent<Rigidbody>();
-        initialColor = GetComponent<Renderer>().material.color;
+        rend = GetComponent<Renderer>();
+        initialColor = rend.material.color;
+
+        invincible = false;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +61,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.CompareTag("Obstacle") && !shieldUp)
+		if(other.gameObject.CompareTag("Obstacle") && !shieldUp && !invincible)
 		{
 			currentHealth = currentHealth - 1;
 			hpBar.value = currentHealth/startingHealth;
@@ -63,6 +69,8 @@ public class PlayerScript : MonoBehaviour {
 			if (currentHealth == 0) {
 				//gameover
 			}
+
+            StartCoroutine(makeInvincibleWhenHit());
 		} else {
             _PowerUps power = other.GetComponent<_PowerUps>();
             if (!power)
@@ -75,4 +83,39 @@ public class PlayerScript : MonoBehaviour {
     public void changeShieldUp(bool activate) {
         shieldUp = activate;
     }
+
+    private IEnumerator makeInvincibleWhenHit() {
+        invincible = true;
+
+        float timePassed = 0f;
+        float timeToPass = Time.deltaTime * 5;
+
+        Color newColor = rend.material.color;
+
+        Color collidedColor = newColor;
+        collidedColor.g = 255;
+
+        //For Flashing a certain Color:
+
+        while (timePassed < invincibileTime) {
+            rend.material.color = rend.material.color == newColor ? collidedColor : newColor;
+
+            timePassed += timeToPass;
+            yield return new WaitForSeconds(timeToPass);
+        }
+
+        //For Flashing them invisible
+
+        //while (timePassed < invincibileTime) {
+        //    rend.enabled = !rend.enabled;
+
+        //    timePassed += timeToPass;
+        //    yield return new WaitForSeconds(timeToPass);
+        //}
+        //rend.enabled = true;
+
+        rend.material.color = newColor;
+        invincible = false;
+    }
+
 }
