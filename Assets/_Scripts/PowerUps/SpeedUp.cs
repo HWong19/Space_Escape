@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpeedUp : _PowerUps {
 
     public float duration = 5f;
-    public float speedBoost = 10f; // Speed increase
+    public float speedBoost = 5f; // Speed increase
 
 	// Use this for initialization
 	void Start () {

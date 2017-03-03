@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldUp : _PowerUps {
 
-    public float duration = 10f;
+    public float duration = 5f;
 
     // Use this for initialization
     void Start() {
