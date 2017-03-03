@@ -67,7 +67,8 @@ public class PlayerScript : MonoBehaviour {
 			hpBar.value = currentHealth/startingHealth;
 			hpText.text = "Health: " + currentHealth;
 			if (currentHealth == 0) {
-				//gameover
+                GameController.instance.gameOver = true;
+                GameController.instance.lost = playerID;
 			}
 
             StartCoroutine(makeInvincibleWhenHit());
