@@ -35,29 +35,45 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (playerID == 1) {
-            
-			if (Input.GetKey ("w")) {
-                rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
-				//transform.Translate (new Vector3 (0f, speed * Time.deltaTime, 0f));
-			} else if (Input.GetKey ("s")) {
-                rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
-                //transform.Translate (new Vector3 (0f, -speed * Time.deltaTime, 0f));
-			}
-		} else if (playerID == 2) {
-			if (Input.GetKey ("up")) {
-				transform.Translate (new Vector3 (0f, speed * Time.deltaTime, 0f));
-			} else if (Input.GetKey ("down")) {
-				transform.Translate (new Vector3 (0f, -speed * Time.deltaTime, 0f));
-			}
-		}
+        if (playerID == 1) {
 
-		if (transform.position.y < -4.5f) {
-			transform.position = new Vector3 (transform.position.x, -4.5f, 0f);
-		} else if (transform.position.y > 4.5f) {
-			transform.position = new Vector3 (transform.position.x, 4.5f, 0f);
-		}
-	}
+            if (Input.GetKey("w")) {
+                rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("s")) {
+                rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("d")) {
+                rgb.MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("a")) {
+                rgb.MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0f));
+            }
+        }
+
+        else if (playerID == 2) {
+            if (Input.GetKey("up")) {
+                rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("down")) {
+                rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("right")) {
+                rgb.MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0f));
+            }
+            else if (Input.GetKey("left")) {
+                rgb.MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0f));
+            }
+        }
+
+        //if (transform.position.y < -4.5f) {
+        //    transform.position = new Vector3(transform.position.x, -4.5f, 0f);
+        //}
+        //else if (transform.position.y > 4.5f) {
+        //    transform.position = new Vector3(transform.position.x, 4.5f, 0f);
+        //}
+
+    }
 
 	void OnTriggerEnter(Collider other)
 	{

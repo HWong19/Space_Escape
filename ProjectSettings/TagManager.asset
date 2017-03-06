@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - WallBoundary
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX

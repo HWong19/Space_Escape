@@ -6,7 +6,8 @@ using UnityEngine;
 public class SpeedUp : _PowerUps {
 
     public float duration = 5f;
-    public float speedBoost = 5f; // Speed increase
+    public float speedBoost = 2f; // Speed increase
+    public float speedLimit = 12f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,11 +21,17 @@ public class SpeedUp : _PowerUps {
     private IEnumerator startSpeedUp(PlayerScript player) {
         float initialSpeed = player.speed;
 
+        if (initialSpeed >= 20f) {
+            player.speed = speedLimit;
+            yield return new WaitForSeconds(duration);
+            player.speed -= speedBoost;
 
-
-        player.speed += speedBoost;
-        yield return new WaitForSeconds(duration);
-        player.speed -= speedBoost;
+        }
+        else {
+            player.speed += speedBoost;
+            yield return new WaitForSeconds(duration);
+            player.speed -= speedBoost;
+        }
 
 
         Destroy(this);
