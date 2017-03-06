@@ -7,7 +7,7 @@ public class SpeedUp : _PowerUps {
 
     public float duration = 5f;
     public float speedBoost = 2f; // Speed increase
-    public float speedLimit = 12f;
+    public float speedLimit = 20f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +21,7 @@ public class SpeedUp : _PowerUps {
     private IEnumerator startSpeedUp(PlayerScript player) {
         float initialSpeed = player.speed;
 
-        if (initialSpeed >= 20f) {
+        if (initialSpeed >= speedLimit) {
             player.speed = speedLimit;
             yield return new WaitForSeconds(duration);
             player.speed -= speedBoost;
