@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scene_Game_Proto_1.unity
   - enabled: 1
     path: Assets/_Scenes/Scene_Game_Proto_1.unity
+  - enabled: 1
+    path: Assets/_Scenes/Help.unity
