@@ -11,6 +11,9 @@ public class SpeedUp : _PowerUps {
 
 	// Use this for initialization
 	void Start () {
+        replaceWhenCollectedAgain = false;
+
+
         base.Start();
 	}
 
@@ -34,7 +37,10 @@ public class SpeedUp : _PowerUps {
         }
 
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 
+    public override void deleteSelf() {
+
+    }
 }

@@ -4,11 +4,18 @@ using UnityEngine;
 
 public abstract class _PowerUps : MonoBehaviour {
 
+    public bool replaceWhenCollectedAgain;
+
 	// Use this for initialization
-	public void Start () {
-        PlayerScript player = GetComponent<PlayerScript>();
-        if (player)
-            activate(player);
+	protected void Start () {
+        PlayerScript player = transform.parent.GetComponent<PlayerScript>();
+        if (player) {
+            //if (replaceWhenCollectedAgain)
+            //    replace(player);
+            //else
+                activate(player);
+
+        }
     }
 
     //void OnTriggerEnter(Collider collided) {
@@ -18,4 +25,5 @@ public abstract class _PowerUps : MonoBehaviour {
     //}
 
     protected abstract void activate(PlayerScript player);
+    public abstract void deleteSelf();
 }

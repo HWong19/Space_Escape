@@ -111,14 +111,33 @@ public class PlayerScript : MonoBehaviour {
 			}
 
             StartCoroutine(makeInvincibleWhenHit());
-		} else {
-            _PowerUps power = other.GetComponent<_PowerUps>();
-            if (!power)
-                return;
-            gameObject.AddComponent(   power.GetType()   );
-            Destroy(other.gameObject);
+		} else if (other.gameObject.tag == "PowerUp") {
+            pickUpPowerUp(other.gameObject);
+
         }
 	}
+
+    private void pickUpPowerUp(GameObject powerUpPickup) {
+        Transform powerUp = powerUpPickup.transform.GetChild(0);
+        _PowerUps powerScript = powerUp.GetComponent<_PowerUps>();
+        System.Type typeOfPower = powerScript.GetType();
+
+        if (powerUp.GetComponent<_PowerUps>().replaceWhenCollectedAgain) {
+            for (int child = 0; child < transform.childCount; ++child) {
+                _PowerUps childPower = transform.GetChild(0).GetComponent<_PowerUps>();
+                if (typeOfPower == childPower.GetType()) {
+                    childPower.deleteSelf();
+                    break;
+                }
+            }
+        }
+
+        powerUp.parent = gameObject.transform;
+        powerUp.gameObject.SetActive(true);
+
+        Destroy(powerUpPickup);
+    }
+
 
     public void changeShieldUp(bool activate) {
         shieldUp = activate;

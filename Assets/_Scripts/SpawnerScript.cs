@@ -17,9 +17,9 @@ public class SpawnerScript : MonoBehaviour {
 
     private float speedUpInterval = 10f;
     private float speedUpTimer = 0f;
-    public float speedUpMultiplier = 1.25f;
+    public float speedUpMultiplier = 1.18f;
 
-    public int speedUpMultipleCap = 8;
+    public int speedUpMultipleCap = 4;
 
 	// Use this for initialization
 	void Start () {
@@ -67,7 +67,7 @@ public class SpawnerScript : MonoBehaviour {
             obsMovement.speed = obsMovement.speed * (speedUpMultiplier * speedUpTimeMultiple);
         }
 		lastObstacleSpawnTime = Time.time;
-        restPeriod = restPeriod / ( (speedUpTimeMultiple == 0 ? 1 : speedUpTimeMultiple) * 1.5f );
+        restPeriod = restPeriod / ( (speedUpTimeMultiple == 0 ? 1 : speedUpTimeMultiple) * 1.2f );
     }
 
 	void InstantiateCapsule(int num)
