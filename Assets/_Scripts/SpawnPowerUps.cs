@@ -33,7 +33,7 @@ public class SpawnPowerUps : MonoBehaviour {
         //else if (rng < 0.6f) {
         float verticalOffset = Random.Range(-1f, 1f) * (Camera.main.orthographicSize - 1);
             Instantiate(powerUps[rng], gameObject.transform.position + new Vector3(0, verticalOffset, 0), new Quaternion());
-            restPeriod = Random.Range(1f, 2);
+            restPeriod = Random.Range(1.5f, 4f);
         //} else {
         //    restPeriod = 5f;
         //}
