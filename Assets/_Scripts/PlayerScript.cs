@@ -124,7 +124,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (powerUp.GetComponent<_PowerUps>().replaceWhenCollectedAgain) {
             for (int child = 0; child < transform.childCount; ++child) {
-                _PowerUps childPower = transform.GetChild(0).GetComponent<_PowerUps>();
+                _PowerUps childPower = transform.GetChild(child).GetComponent<_PowerUps>();
                 if (typeOfPower == childPower.GetType()) {
                     childPower.deleteSelf();
                     break;
@@ -181,6 +181,10 @@ public class PlayerScript : MonoBehaviour {
             yield return new WaitForSeconds(flashSpeed);
         }
         rend.material.color = startColor;
+    }
+
+    public void resetColor() {
+        rend.material.color = initialColor;
     }
 
 }

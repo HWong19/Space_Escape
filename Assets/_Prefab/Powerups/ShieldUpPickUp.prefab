@@ -147,4 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceWhenCollectedAgain: 1
-  duration: 4
+  duration: 10

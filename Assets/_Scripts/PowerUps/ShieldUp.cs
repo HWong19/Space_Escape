@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShieldUp : _PowerUps {
 
+    PlayerScript playerRef;
     public float duration = 5f;
 
     private IEnumerator flashCoroutine = null;
@@ -19,6 +20,7 @@ public class ShieldUp : _PowerUps {
     }
 
     protected override void activate(PlayerScript player) {
+        playerRef = player;
         playerRenderer = player.gameObject.GetComponent<Renderer>();
 
         Color shieldColor = Color.green;
@@ -33,27 +35,18 @@ public class ShieldUp : _PowerUps {
         player.changeShieldUp(true);
         
         ShieldUp currentShield = player.GetComponentInChildren<ShieldUp>();
-        
-        if (true) {
             
-            StartCoroutine(flashCoroutine);
-            yield return new WaitForSeconds(duration);
-            player.changeShieldUp(false);
-            playerRenderer.material.color = player.initialColor;
-        } else {
-                
-        }
-
-
-            if (player.GetComponents<ShieldUp>().Length == 1) {
-            
-        }
+        StartCoroutine(flashCoroutine);
+        yield return new WaitForSeconds(duration);
+        player.changeShieldUp(false);
+        player.resetColor();
 
         Destroy(gameObject);
     }
 
     public override void deleteSelf() {
         StopCoroutine(flashCoroutine);
+        playerRef.resetColor();
         Destroy(gameObject);
     }
 
