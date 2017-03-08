@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShieldUp : _PowerUps {
 
     public float duration = 5f;
+    
 
     // Use this for initialization
     void Start() {
@@ -19,8 +20,11 @@ public class ShieldUp : _PowerUps {
         Renderer playerRenderer = player.gameObject.GetComponent<Renderer>();
 
         player.changeShieldUp(true);
-        playerRenderer.material.color = Color.white;
 
+        Color shieldColor = Color.green;
+
+
+        StartCoroutine(player.flashColor(duration, .1f, playerRenderer.material.color, shieldColor));
         yield return new WaitForSeconds(duration);
 
         if (player.GetComponents<ShieldUp>().Length == 1) {

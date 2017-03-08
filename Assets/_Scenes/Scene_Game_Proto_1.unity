@@ -1529,8 +1529,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: HorizontalKeyPad
+  m_VerticalAxis: VerticalKeyPad
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   startingHealth: 3
   hpBar: {fileID: 98397521}
   hpText: {fileID: 705697918}
-  invincibileTime: 3
+  invincibleTime: 3
 --- !u!54 &1495915393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2353,7 +2353,7 @@ MonoBehaviour:
   startingHealth: 3
   hpBar: {fileID: 1717794842}
   hpText: {fileID: 1820985630}
-  invincibileTime: 3
+  invincibleTime: 3
 --- !u!54 &1833493314
 Rigidbody:
   m_ObjectHideFlags: 0
