@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114065379258052882}
   - component: {fileID: 114504847920458058}
   m_Layer: 0
-  m_Name: ShieldUp
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,4 +117,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae34e709341aab4faec7dbf24c3738b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replaceWhenCollectedAgain: 0
   duration: 10
