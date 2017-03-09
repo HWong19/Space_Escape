@@ -48,13 +48,13 @@ public class BulletController : MonoBehaviour {
         bullet_inst.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.right * speed);
 
         --remainingBullets;
-        bulletSlider.value = remainingBullets;
         updateBulletText();
 
     }
 
     private void updateBulletText() {
         bulletRemainingText.text = "Bullets: " + remainingBullets;
+        bulletSlider.value = remainingBullets;
     }
 
     public void setBulletsLeft(int newAmount) {
