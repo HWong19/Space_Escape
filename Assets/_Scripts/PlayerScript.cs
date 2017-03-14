@@ -122,12 +122,14 @@ public class PlayerScript : MonoBehaviour {
         _PowerUps powerScript = powerUp.GetComponent<_PowerUps>();
         System.Type typeOfPower = powerScript.GetType();
 
-        if (powerUp.GetComponent<_PowerUps>().replaceWhenCollectedAgain) {
+        if (powerScript.replaceWhenCollectedAgain) {
             for (int child = 0; child < transform.childCount; ++child) {
                 _PowerUps childPower = transform.GetChild(child).GetComponent<_PowerUps>();
-                if (typeOfPower == childPower.GetType()) {
-                    childPower.deleteSelf();
-                    break;
+                if (childPower) {
+                    if (typeOfPower == childPower.GetType()) {
+                        childPower.deleteSelf();
+                        break;
+                    }
                 }
             }
         }
