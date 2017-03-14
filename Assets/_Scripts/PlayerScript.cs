@@ -37,8 +37,6 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rgb.velocity = new Vector3 (0, 0, 0); // fixes the squeeze/bounce bug
-
         if (playerID == 1) {
             vertMovement = Input.GetAxis("VerticalKeyPad");
             horiMovement = Input.GetAxis("HorizontalKeyPad");

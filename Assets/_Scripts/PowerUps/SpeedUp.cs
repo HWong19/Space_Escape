@@ -40,10 +40,10 @@ public class SpeedUp : _PowerUps {
         }
 
 
-        Destroy(gameObject);
+        deleteSelf();
     }
 
     public override void deleteSelf() {
-
+        Destroy(gameObject);
     }
 }
