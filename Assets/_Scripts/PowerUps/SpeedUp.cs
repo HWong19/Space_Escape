@@ -9,6 +9,8 @@ public class SpeedUp : _PowerUps {
     public float speedBoost = 2f; // Speed increase
     public float speedLimit = 20f;
 
+    protected bool speedUp = true;
+
 	// Use this for initialization
 	void Start () {
         replaceWhenCollectedAgain = false;
@@ -18,16 +20,17 @@ public class SpeedUp : _PowerUps {
 	}
 
     protected override void activate(PlayerScript player) {
-        StartCoroutine("startSpeedUp", player);
+        StartCoroutine(startSpeedUp(player, speedUp));
     }
 
-    private IEnumerator startSpeedUp(PlayerScript player) {
+    private IEnumerator startSpeedUp(PlayerScript player, bool speedingUp) {
         float initialSpeed = player.speed;
 
-        if (initialSpeed >= speedLimit) {
+        if (speedingUp ? initialSpeed >= speedLimit : initialSpeed <= speedLimit) {
+            float differenceInSpeed = initialSpeed - speedLimit;
             player.speed = speedLimit;
             yield return new WaitForSeconds(duration);
-            player.speed -= speedBoost;
+            //player.speed -= speedBoost;
 
         }
         else {

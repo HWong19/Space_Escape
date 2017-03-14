@@ -6,7 +6,6 @@ public class bulletdelete : MonoBehaviour {
 
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Obstacle") {
-            print("Collided");
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
@@ -14,7 +13,6 @@ public class bulletdelete : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Obstacle") {
-            print("Triggered");
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
