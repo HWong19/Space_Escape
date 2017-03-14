@@ -44,7 +44,7 @@ public class ShieldUp : _PowerUps {
         Destroy(gameObject);
     }
 
-    public override void deleteSelf() {
+    public void deleteSelf() {
         StopCoroutine(flashCoroutine);
         playerRef.resetColor();
         Destroy(gameObject);

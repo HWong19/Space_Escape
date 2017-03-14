@@ -21,8 +21,8 @@ public class RefillBullets : _PowerUps {
 
     }
 
-    public override void deleteSelf() {
-        Destroy(gameObject);
+    public void deleteSelf() {
+        base.deleteSelf();
     }
 
     

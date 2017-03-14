@@ -25,5 +25,8 @@ public abstract class _PowerUps : MonoBehaviour {
     //}
 
     protected abstract void activate(PlayerScript player);
-    public abstract void deleteSelf();
+
+    public void deleteSelf() {
+        Destroy(gameObject);
+    }
 }

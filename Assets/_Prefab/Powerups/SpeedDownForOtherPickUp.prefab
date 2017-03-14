@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4359142443952734}
-  - component: {fileID: 114871830780422524}
+  - component: {fileID: 114996816781908518}
   m_Layer: 0
   m_Name: SpeedDownForOther
   m_TagString: Untagged
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &114871830780422524
+--- !u!114 &114996816781908518
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replaceWhenCollectedAgain: 0
   duration: 5
-  speedBoost: 2.5
+  speedBoost: 3
   speedLimit: 2
