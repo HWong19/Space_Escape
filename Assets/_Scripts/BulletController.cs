@@ -45,7 +45,9 @@ public class BulletController : MonoBehaviour {
     private void Fire() {
         time = Time.time;
 		GameObject bullet_inst = Instantiate(shotPrefab, exit_Point.transform.position + new Vector3(1f,0.5f,-0f), Quaternion.identity);
-		bullet_inst.GetComponent<Rigidbody>().velocity = transform.TransformDirection(Vector3.forward * speed);
+        Rigidbody bulletRB = bullet_inst.GetComponent<Rigidbody>();
+		bulletRB.velocity = transform.TransformDirection(Vector3.forward * speed);
+        bulletRB.velocity = new Vector3(bulletRB.velocity.x, bulletRB.velocity.y, 0);
 
         --remainingBullets;
         updateBulletText();
