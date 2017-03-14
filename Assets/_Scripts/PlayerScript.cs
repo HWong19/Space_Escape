@@ -39,6 +39,21 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 
         if (playerID == 1) {
+
+            //if (Input.GetKey("w")) {
+            //    vertMovement = 1;
+            //    //rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
+            //}
+            //else if (Input.GetKey("s")) {
+            //    //rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
+            //}
+            //if (Input.GetKey("d")) {
+            //    //rgb.MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0f));
+            //}
+            //else if (Input.GetKey("a")) {
+            //    //rgb.MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0f));
+            //}
+
             vertMovement = Input.GetAxis("VerticalKeyPad");
             horiMovement = Input.GetAxis("HorizontalKeyPad");
 
@@ -47,6 +62,21 @@ public class PlayerScript : MonoBehaviour {
         }
 
         else if (playerID == 2) {
+            //if (Input.GetKey("up")) {
+            //    //rgb.MovePosition(transform.position + new Vector3(0f, speed * Time.deltaTime, 0f));
+
+            //}
+            //else if (Input.GetKey("down")) {
+            //    //rgb.MovePosition(transform.position + new Vector3(0f, -speed * Time.deltaTime, 0f));
+            //}
+            //if (Input.GetKey("right")) {
+            //    rgb.MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0f));
+            //    print("here");
+            //}
+            //else if (Input.GetKey("left")) {
+            //    rgb.MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0f));
+            //}
+
             vertMovement = Input.GetAxis("VerticalArrows");
             horiMovement = Input.GetAxis("HorizontalArrows");
             //print("Player2: " + vertMovement + " | " + horiMovement);
@@ -58,6 +88,13 @@ public class PlayerScript : MonoBehaviour {
         Vector3 moveOffset = moveDirection * speed * Time.deltaTime;
 
         rgb.MovePosition(transform.position + moveOffset);
+
+        //if (transform.position.y < -4.5f) {
+        //    transform.position = new Vector3(transform.position.x, -4.5f, 0f);
+        //}
+        //else if (transform.position.y > 4.5f) {
+        //    transform.position = new Vector3(transform.position.x, 4.5f, 0f);
+        //}
 
     }
 
