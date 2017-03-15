@@ -6,16 +6,16 @@ public class SpawnerScript : MonoBehaviour {
 
 	public GameObject twoWall;
 	public GameObject threeWall;
+    public GameObject fourWall;
 	public GameObject capsule;
 	public GameObject diamond;
 	public GameObject doubleV;
 	public GameObject xObstacle;
 
-
 	private float lastObstacleSpawnTime;
 	private float restPeriod;
 
-    private float speedUpInterval = 10f;
+    public float speedUpInterval = 10f;
     private float speedUpTimer = 0f;
     public float speedUpMultiplier = 1.18f;
 
@@ -38,7 +38,8 @@ public class SpawnerScript : MonoBehaviour {
 	void SpawnObstacle(){
 		float rng = Random.value;
         GameObject instantiatedObject = null;
-        int speedUpTimeMultiple = (int)(speedUpTimer / speedUpInterval);
+        int speedUpTimeMultiple = (int)Mathf.Ceil(speedUpTimer / speedUpInterval);
+
         if (speedUpTimeMultiple > speedUpMultipleCap)
             speedUpTimeMultiple = speedUpMultipleCap;
 
@@ -48,13 +49,16 @@ public class SpawnerScript : MonoBehaviour {
 		} else if (rng < 0.6f) {
 			instantiatedObject = Instantiate (twoWall, gameObject.transform.position, new Quaternion());
 			restPeriod = 3f;
-		} else if (rng < 0.7f) {
+		} else if (rng < 0.68f) {
             instantiatedObject = Instantiate(threeWall, gameObject.transform.position, new Quaternion());
 			restPeriod = 3f;
-		} else if (rng < 0.8f) {
+		} else if (rng < 0.78f) {
+            instantiatedObject = Instantiate(fourWall, gameObject.transform.position, new Quaternion());
+            restPeriod = 3f;
+        } else if (rng < 0.86f) {
             instantiatedObject = Instantiate(diamond, gameObject.transform.position, new Quaternion());
 			restPeriod = 5f;
-		} else if (rng < 0.9f) {
+		} else if (rng < 0.95f) {
             instantiatedObject = Instantiate(doubleV, gameObject.transform.position, new Quaternion());
 			restPeriod = 5f;
 		} else {
@@ -64,7 +68,7 @@ public class SpawnerScript : MonoBehaviour {
 
         if (instantiatedObject) {
             ObstacleMovementScript obsMovement = instantiatedObject.GetComponent<ObstacleMovementScript>();
-            obsMovement.speed = obsMovement.speed * (speedUpMultiplier * speedUpTimeMultiple);
+            obsMovement.speed = obsMovement.speed * (speedUpMultiplier * speedUpTimeMultiple / 1.35f);
         }
 		lastObstacleSpawnTime = Time.time;
         restPeriod = restPeriod / ( (speedUpTimeMultiple == 0 ? 1 : speedUpTimeMultiple) * 1.2f );

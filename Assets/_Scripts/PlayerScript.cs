@@ -145,7 +145,7 @@ public class PlayerScript : MonoBehaviour {
             timePassed += flashSpeed;
             yield return new WaitForSeconds(flashSpeed);
         }
-        rend.material.color = startColor;
+        resetColor();
     }
 
     public void resetColor() {

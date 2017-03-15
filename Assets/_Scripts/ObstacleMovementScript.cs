@@ -14,7 +14,7 @@ public class ObstacleMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (new Vector3 (-speed, 0f, 0f) * Time.deltaTime, Space.World);
-		if (transform.position.x < -20f) {
+		if (transform.position.x < -35f) {
 			Destroy (gameObject);
 		}
 	}
