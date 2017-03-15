@@ -31,12 +31,12 @@ public class PushOtherForward : _PowerUps {
             StartCoroutine(pushCoroutine);
 
         }
-        print(otherPlayer.GetComponent<Rigidbody>().velocity);
     }
 
     protected override void activate(PlayerScript player) {
         currentPlayer = player;
         otherPlayer = OppositePlayer.getOppositePlayer(player);
+        transform.position += new Vector3(0, 0, -.5f); // Just to push the particle effects towards the camera so it shows more
 
         gameObject.GetComponent<ParticleSystem>().Play();
         pushCoroutine = applyPushVelocity();

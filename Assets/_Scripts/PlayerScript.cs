@@ -97,6 +97,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         powerUp.parent = gameObject.transform;
+        powerUp.transform.position = gameObject.transform.position;
         powerUp.gameObject.SetActive(true);
 
         Destroy(powerUpPickup);
