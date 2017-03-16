@@ -23,6 +23,8 @@ public class PlayerScript : MonoBehaviour {
     private float horiMovement = 0f;
     private float vertMovement = 0f;
 
+    private float playerHalfSizeX;
+    private float playerXLimit;
 	// Use this for initialization
 	void Start () {
 		currentHealth = startingHealth;
@@ -33,6 +35,17 @@ public class PlayerScript : MonoBehaviour {
         initialColor = rend.material.color;
 
         invincible = false;
+
+        playerHalfSizeX = .5f;
+        playerXLimit = GameController.camBoundsX - playerHalfSizeX;
+
+        print(playerXLimit + " | " + GameController.camBoundsX);
+
+        if (!canMoveRB(Vector3.zero)) {
+            Vector3 newStartVector = transform.position;
+            newStartVector.x = -playerXLimit;
+            transform.position = newStartVector;
+        }
 	}
 	
 	// Update is called once per frame
@@ -40,7 +53,7 @@ public class PlayerScript : MonoBehaviour {
         if (playerID == 1) {
             vertMovement = Input.GetAxis("VerticalKeyPad");
             horiMovement = Input.GetAxis("HorizontalKeyPad");
-
+            
             //print("Player1: " + vertMovement + " | " + horiMovement);
 
         }
@@ -55,8 +68,14 @@ public class PlayerScript : MonoBehaviour {
         if (moveDirection.magnitude > 1)
             Vector3.Normalize(moveDirection);
         Vector3 moveOffset = moveDirection * speed * Time.deltaTime;
-
-        rgb.MovePosition(transform.position + moveOffset);
+        
+        if (canMoveRB(moveOffset)) { // Only X
+            rgb.MovePosition(transform.position + moveOffset);
+        } else { // So, have to keep moving Y. Y-Axis has walls so moving this is okay
+            Vector3 canceledXOffset = moveOffset;
+            canceledXOffset.x = 0;
+            rgb.MovePosition(transform.position + canceledXOffset);
+        }
 
     }
 
@@ -151,5 +170,11 @@ public class PlayerScript : MonoBehaviour {
     public void resetColor() {
         rend.material.color = initialColor;
     }
+
+    public bool canMoveRB(Vector3 offset) {
+        Vector3 newPos = transform.position + offset;
+        return newPos.x > -playerXLimit && newPos.x < playerXLimit;
+    }
+         
 
 }

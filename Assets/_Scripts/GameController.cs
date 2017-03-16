@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour {
     AudioSource gameOverSound;
     private bool soundPlayed;
 
+    public static Camera mainCam;
+    public static float camBoundsX;
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -22,6 +25,9 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         }
         gameOverSound = GetComponent<AudioSource>();
+
+        mainCam = Camera.main;
+        camBoundsX = mainCam.aspect * (mainCam.orthographicSize);
     }
 
     void Start() {

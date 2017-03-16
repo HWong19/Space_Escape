@@ -50,7 +50,8 @@ public class PushOtherForward : _PowerUps {
 
         while (timePassed < pushDuration) {
 
-            otherRB.MovePosition(otherRB.gameObject.transform.position + moveOffset);
+            if (otherPlayer.canMoveRB(moveOffset))
+                otherRB.MovePosition(otherRB.gameObject.transform.position + moveOffset);
 
             yield return 0;
             timePassed += Time.deltaTime;
