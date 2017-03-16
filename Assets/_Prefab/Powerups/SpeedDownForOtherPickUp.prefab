@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65021670584098650}
   - component: {fileID: 23055331104801064}
   - component: {fileID: 114398811242362834}
+  - component: {fileID: 95767142807146818}
   m_Layer: 0
   m_Name: SpeedDownForOtherPickUp
   m_TagString: PowerUp
@@ -86,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 68731bbfb91d4b5458032ecb39065b16, type: 2}
+  - {fileID: 2100000, guid: 66e324962e7de914891d75593d797339, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,6 +124,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95767142807146818
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664668487186210}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60ce9c001a419254aa6d3e6fddd20f8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114398811242362834
 MonoBehaviour:
   m_ObjectHideFlags: 1
