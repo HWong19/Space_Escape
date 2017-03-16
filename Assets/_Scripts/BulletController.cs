@@ -12,12 +12,17 @@ public class BulletController : MonoBehaviour {
     public GameObject exit_Point;
     public float speed = 10.0f;
     public float fireRate = 0.5f;
+    public int maxBullets;
+    public AudioClip fireSound;
+    AudioSource playerSound;
 
     private float time = 0.0f;
-
-    public int maxBullets = 3;
     private int remainingBullets;
-    // Use this for initialization
+
+    private void Awake() {
+        playerSound = GetComponent<AudioSource>();
+    }
+
     void Start () {
         time = Time.time;
 
@@ -28,16 +33,16 @@ public class BulletController : MonoBehaviour {
         updateBulletText();
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (Time.time - time > fireRate && remainingBullets > 0) {
             
             if (Input.GetKeyDown("space") && exit_Point.name == "Player1") {
-
                 Fire();
+                playerSound.PlayOneShot(fireSound, 1f);
             }
             else if (Input.GetKeyDown("[0]") && exit_Point.name == "Player2") {
                 Fire();
+                playerSound.PlayOneShot(fireSound, 1f);
             }
         }
     }

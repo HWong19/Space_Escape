@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour {
     public GameObject red_won;
     public GameObject blue_won;
     public static GameController instance;
+    public AudioClip P1_won;
+    public AudioClip P2_won;
+    AudioSource gameOverSound;
+    private bool soundPlayed;
 
     void Awake() {
         if (instance == null) {
@@ -17,23 +21,30 @@ public class GameController : MonoBehaviour {
         else if (instance != this) {
             Destroy(gameObject);
         }
+        gameOverSound = GetComponent<AudioSource>();
     }
 
-    // Use this for initialization
     void Start() {
-
+        soundPlayed = true;
     }
 
-    // Update is called once per frame
     void Update() {
         if (gameOver == true) {
-            Time.timeScale = 0;
             if (lost == 1) {
                 blue_won.SetActive(true);
+                if (soundPlayed) {
+                    gameOverSound.PlayOneShot(P2_won, 1f);
+                    soundPlayed = false;
+                }
             }
             else if (lost == 2) {
                 red_won.SetActive(true);
+                if (soundPlayed) {
+                    gameOverSound.PlayOneShot(P1_won, 1f);
+                    soundPlayed = false;
+                }
             }
+            Time.timeScale = 0;
         }
     }
 }
