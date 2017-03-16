@@ -8,11 +8,17 @@ public class SpeedUp : _PowerUps {
     public float duration = 5f;
     public float speedBoost = 2f; // Speed increase
     public float speedLimit = 20f;
+    public AudioClip speedSound;
+    AudioSource speedUpSound;
 
     protected bool speedUp = true;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake() {
+        speedUpSound = GetComponent<AudioSource>();
+    }
+
+    // Use this for initialization
+    void Start () {
         replaceWhenCollectedAgain = false;
 
 
@@ -25,6 +31,8 @@ public class SpeedUp : _PowerUps {
 
     private IEnumerator startSpeedUp(PlayerScript player, bool speedingUp) {
         float initialSpeed = player.speed;
+
+        speedUpSound.PlayOneShot(speedSound, 1f);
 
         if (speedingUp ? initialSpeed >= speedLimit : initialSpeed <= speedLimit) {
             float differenceInSpeed = initialSpeed - speedLimit;
