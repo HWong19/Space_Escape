@@ -2568,6 +2568,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 1432248989522194, guid: b0c5236a21e55a244949e30ca59f9045, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c5236a21e55a244949e30ca59f9045, type: 2}
   m_IsPrefabParent: 0
@@ -3899,8 +3903,8 @@ MonoBehaviour:
   doubleV: {fileID: 1334571634026050, guid: b67704d064d8bcf429eeaccdeebb6202, type: 2}
   xObstacle: {fileID: 1434370337281246, guid: a26208e2a8a30784b859da38d0e675dc, type: 2}
   speedUpInterval: 13
-  speedUpMultiplier: 1.2
-  speedUpMultipleCap: 6
+  speedUpMultiplier: 1.15
+  speedUpMultipleCap: 5
 --- !u!4 &1982573965
 Transform:
   m_ObjectHideFlags: 0

@@ -57,13 +57,13 @@ public class SpawnerScript : MonoBehaviour {
             restPeriod = 3f;
         } else if (rng < 0.86f) {
             instantiatedObject = Instantiate(diamond, gameObject.transform.position, new Quaternion());
-			restPeriod = 5f;
+			restPeriod = 7f;
 		} else if (rng < 0.95f) {
             instantiatedObject = Instantiate(doubleV, gameObject.transform.position, new Quaternion());
-			restPeriod = 5f;
+			restPeriod = 7f;
 		} else {
             instantiatedObject = Instantiate(xObstacle, gameObject.transform.position, new Quaternion());
-			restPeriod = 5f;
+			restPeriod = 6f;
 		}
 
         if (instantiatedObject) {
