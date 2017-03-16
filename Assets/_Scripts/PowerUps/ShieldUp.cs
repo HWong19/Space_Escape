@@ -7,10 +7,16 @@ public class ShieldUp : _PowerUps {
 
     PlayerScript playerRef;
     public float duration = 5f;
+    public AudioClip shieldSound;
+    AudioSource shieldsoundSource;
 
     private IEnumerator flashCoroutine = null;
     Renderer playerRenderer;
 
+
+    private void Awake() {
+        shieldsoundSource = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start() {
@@ -37,6 +43,8 @@ public class ShieldUp : _PowerUps {
         ShieldUp currentShield = player.GetComponentInChildren<ShieldUp>();
             
         StartCoroutine(flashCoroutine);
+
+        shieldsoundSource.PlayOneShot(shieldSound, 1f);
         yield return new WaitForSeconds(duration);
         player.changeShieldUp(false);
         player.resetColor();

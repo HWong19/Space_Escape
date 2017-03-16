@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedDownForOther : SpeedUp {
+    
+    AudioSource SlowDownSound;
 
-	// Use this for initialization
-	void Start () {
+    public void Awake() {
+        SlowDownSound = GetComponent<AudioSource>();
+    }
+
+    // Use this for initialization
+    void Start () {
+        SlowDownSound.PlayOneShot(speedSound, 0.8f);
         speedBoost *= -1;
         speedUp = false;
 

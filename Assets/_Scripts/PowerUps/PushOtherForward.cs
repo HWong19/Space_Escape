@@ -14,19 +14,29 @@ public class PushOtherForward : _PowerUps {
     public string player1ActivateButton;
     public string player2ActivateButton;
 
+    public AudioClip PickUpSound;
+    public AudioClip UseSound;
+
+    AudioSource PushSound;
+
     private IEnumerator pushCoroutine;
+
+    private void Awake() {
+        PushSound = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start () {
         
         base.Start();
+        PushSound.PlayOneShot(PickUpSound, 0.8f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if ((Input.GetKeyDown(player1ActivateButton) && currentPlayer.playerID == 1) ||
             (Input.GetKeyDown(player2ActivateButton) && currentPlayer.playerID == 2) ) {
-
+            PushSound.PlayOneShot(UseSound, 0.8f);
             gameObject.GetComponent<ParticleSystem>().Stop();
             StartCoroutine(pushCoroutine);
 
@@ -58,7 +68,9 @@ public class PushOtherForward : _PowerUps {
         }
 
         otherRB.velocity = Vector3.zero;
-        deleteSelf();
+        //deleteSelf();
+        StopCoroutine(pushCoroutine);
+        Destroy(gameObject, 1f);
     }
 
     public void deleteSelf() {
