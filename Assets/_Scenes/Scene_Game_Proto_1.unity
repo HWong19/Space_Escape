@@ -254,7 +254,7 @@ ParticleSystem:
   m_GameObject: {fileID: 63297878}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -3049,7 +3049,7 @@ ParticleSystem:
   m_GameObject: {fileID: 106566247}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -5964,7 +5964,7 @@ ParticleSystem:
   m_GameObject: {fileID: 345124190}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -8696,7 +8696,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1664668487186210, guid: ce10e11869b4c6445a5d2432cf8f3200, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23055331104801064, guid: ce10e11869b4c6445a5d2432cf8f3200,
         type: 2}
@@ -9006,7 +9006,7 @@ ParticleSystem:
   m_GameObject: {fileID: 431927007}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -12917,6 +12917,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 1212036334371566, guid: d6e33349979bc284f8e8ea59de813980, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6e33349979bc284f8e8ea59de813980, type: 2}
   m_IsPrefabParent: 0
@@ -13431,7 +13435,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1242518572}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -16244,7 +16248,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1295055912}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -19130,7 +19134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1432248989522194, guid: b0c5236a21e55a244949e30ca59f9045, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0c5236a21e55a244949e30ca59f9045, type: 2}
@@ -19629,7 +19633,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1548874055}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -22643,6 +22647,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1603999446055040, guid: c13068093745dc441802b38ba7790c94, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c13068093745dc441802b38ba7790c94, type: 2}
   m_IsPrefabParent: 0
@@ -22819,7 +22827,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1720529403}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -25623,7 +25631,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1795064241}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -28402,7 +28410,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1825530069}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -31497,6 +31505,9 @@ MonoBehaviour:
   - {fileID: 1770614122040488, guid: add1aa38d19ce2147bb34637883182cd, type: 2}
   - {fileID: 1770614122040488, guid: add1aa38d19ce2147bb34637883182cd, type: 2}
   - {fileID: 1770614122040488, guid: add1aa38d19ce2147bb34637883182cd, type: 2}
+  - {fileID: 1212036334371566, guid: d6e33349979bc284f8e8ea59de813980, type: 2}
+  - {fileID: 1212036334371566, guid: d6e33349979bc284f8e8ea59de813980, type: 2}
+  - {fileID: 1212036334371566, guid: d6e33349979bc284f8e8ea59de813980, type: 2}
   minRestTime: 1
   maxRestTime: 2.8
 --- !u!1001 &2019326227
