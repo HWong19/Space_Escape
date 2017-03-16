@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4713317657245262
 Transform:
   m_ObjectHideFlags: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replaceWhenCollectedAgain: 1
-  pushPower: 25
+  pushPower: 30
   pushDuration: 0.2
   player1ActivateButton: c
   player2ActivateButton: '[1]'

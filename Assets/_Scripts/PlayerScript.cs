@@ -117,7 +117,7 @@ public class PlayerScript : MonoBehaviour {
 
         //For Flashing a certain Color:
 
-        StartCoroutine(flashColor(invincibleTime, timeToPass, rend.material.color, new Color(.2f, .2f, .2f)));
+        StartCoroutine(flashColor(invincibleTime, timeToPass, initialColor, new Color(.2f, .2f, .2f)));
         yield return new WaitForSeconds(invincibleTime);
 
         //For Flashing them invisible

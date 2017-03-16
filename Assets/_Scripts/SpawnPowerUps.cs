@@ -7,6 +7,9 @@ public class SpawnPowerUps : MonoBehaviour {
     public GameObject[] powerUps;
     private int length;
 
+    public float minRestTime;
+    public float maxRestTime;
+
     private float lastObstacleSpawnTime;
     private float restPeriod;
     // Use this for initialization
@@ -15,6 +18,9 @@ public class SpawnPowerUps : MonoBehaviour {
         restPeriod = 0f;
 
         length = powerUps.Length;
+
+        if (maxRestTime < minRestTime)
+            maxRestTime = minRestTime;
     }
 
     // Update is called once per frame
@@ -33,7 +39,7 @@ public class SpawnPowerUps : MonoBehaviour {
         //else if (rng < 0.6f) {
         float verticalOffset = Random.Range(-1f, 1f) * (Camera.main.orthographicSize - 1);
             Instantiate(powerUps[rng], gameObject.transform.position + new Vector3(0, verticalOffset, 0), new Quaternion());
-            restPeriod = Random.Range(1.5f, 4f);
+            restPeriod = Random.Range(minRestTime, maxRestTime);
         //} else {
         //    restPeriod = 5f;
         //}
