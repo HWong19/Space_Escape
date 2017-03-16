@@ -10,7 +10,7 @@ public class RepeatBackground : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        groundHorizontalLength = 20.48f; //initialized pixel dimension divided by 100. e.g. 2048x1024 -> 20.48
+        groundHorizontalLength = 24.58f; //initialized pixel dimension divided by 100. e.g. 2048x1024 -> 20.48
     }
 
     // Update is called once per frame
