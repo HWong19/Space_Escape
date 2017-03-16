@@ -6,8 +6,13 @@ using UnityEngine;
 public class RefillBullets : _PowerUps {
 
     BulletController bulletScript;
+    public AudioClip reloadSound;
+    AudioSource reloadComp;
 
-    // Use this for initialization
+    private void Awake() {
+        reloadComp = GetComponent<AudioSource>();
+    }
+
     void Start () {
         base.Start();
 	}
@@ -17,12 +22,13 @@ public class RefillBullets : _PowerUps {
 
         bulletScript.setBulletsLeft(bulletScript.maxBullets);
 
-        deleteSelf();
+        reloadComp.PlayOneShot(reloadSound, 1f);
 
+        deleteSelf();
     }
 
     public void deleteSelf() {
-        base.deleteSelf();
+        Destroy(gameObject, 1f);
     }
 
     
