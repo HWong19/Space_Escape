@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65450409603117492}
   - component: {fileID: 23269400151352708}
   - component: {fileID: 114513349964978650}
-  - component: {fileID: 95563458540001214}
+  - component: {fileID: 95118832359497594}
   m_Layer: 0
   m_Name: PullOtherBackwardPickUp
   m_TagString: PowerUp
@@ -288,7 +288,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95563458540001214
+--- !u!95 &95118832359497594
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -297,7 +297,7 @@ Animator:
   m_GameObject: {fileID: 1212036334371566}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 31b102ea2aca91647a2b40d592272caa, type: 2}
+  m_Controller: {fileID: 9100000, guid: d57cb6a437d905c4f96a8dd3a9373eab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

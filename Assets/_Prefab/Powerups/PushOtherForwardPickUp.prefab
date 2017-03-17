@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 198080262563783798}
   - component: {fileID: 82519210332639336}
   - component: {fileID: 82654180551159716}
+  - component: {fileID: 95524366928579884}
   m_Layer: 0
   m_Name: PushOtherForward
   m_TagString: Untagged
@@ -43,6 +44,7 @@ GameObject:
   - component: {fileID: 65749190389958956}
   - component: {fileID: 23571565127455676}
   - component: {fileID: 114178705248028830}
+  - component: {fileID: 95561798081900814}
   m_Layer: 0
   m_Name: PushOtherForwardPickUp
   m_TagString: PowerUp
@@ -90,7 +92,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4296f93eda3d4de4ab5af74077396926, type: 2}
+  - {fileID: 2100000, guid: ef4dfb62a40973e46900bfcc580d8118, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,6 +289,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95524366928579884
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432050044308726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7400ed8d558e6049b9872b872ad8dc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95561798081900814
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1770614122040488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7400ed8d558e6049b9872b872ad8dc8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114178705248028830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +361,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1432050044308726}
   serializedVersion: 5
   lengthInSec: 3
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 0
