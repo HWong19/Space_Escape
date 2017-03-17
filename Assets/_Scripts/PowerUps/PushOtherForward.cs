@@ -22,12 +22,12 @@ public class PushOtherForward : _PowerUps {
     private IEnumerator pushCoroutine;
 
     private void Awake() {
-        PushSound = GetComponent<AudioSource>();
+        
     }
 
     // Use this for initialization
     void Start () {
-        
+        PushSound = GetComponent<AudioSource>();
         base.Start();
         PushSound.PlayOneShot(PickUpSound, 0.8f);
 	}

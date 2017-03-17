@@ -15,12 +15,13 @@ public class ShieldUp : _PowerUps {
 
 
     private void Awake() {
-        shieldsoundSource = GetComponent<AudioSource>();
+        
     }
 
     // Use this for initialization
     void Start() {
         replaceWhenCollectedAgain = true;
+        shieldsoundSource = GetComponent<AudioSource>();
 
         base.Start();
     }
