@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65837546517836924}
   - component: {fileID: 23884661973490192}
   - component: {fileID: 114553625085533136}
+  - component: {fileID: 95869122881388482}
   m_Layer: 0
   m_Name: RefillBulletsPickUp
   m_TagString: PowerUp
@@ -84,10 +85,10 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2027984b40e47864cb6a02656944d440, type: 2}
+  - {fileID: 2100000, guid: 94dfd693bf51c4542b760d5ed8b111aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -204,6 +205,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95869122881388482
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603999446055040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d62ad6782574114a928b47b5d772d39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114553625085533136
 MonoBehaviour:
   m_ObjectHideFlags: 1

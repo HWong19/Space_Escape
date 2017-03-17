@@ -56,9 +56,9 @@ public class PushOtherForward : _PowerUps {
         float timePassed = 0f;
 
         Rigidbody otherRB = otherPlayer.GetComponent<Rigidbody>();
-        Vector3 moveOffset = new Vector3(pushPower, 0, 0) * Time.deltaTime;
 
         while (timePassed < pushDuration) {
+            Vector3 moveOffset = new Vector3(pushPower, 0, 0) * Time.deltaTime;
 
             if (otherPlayer.canMoveRB(moveOffset))
                 otherRB.MovePosition(otherRB.gameObject.transform.position + moveOffset);

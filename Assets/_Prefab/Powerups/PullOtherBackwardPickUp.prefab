@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65450409603117492}
   - component: {fileID: 23269400151352708}
   - component: {fileID: 114513349964978650}
+  - component: {fileID: 95563458540001214}
   m_Layer: 0
   m_Name: PullOtherBackwardPickUp
   m_TagString: PowerUp
@@ -90,7 +91,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4296f93eda3d4de4ab5af74077396926, type: 2}
+  - {fileID: 2100000, guid: 3c014013a74f9734c92ca13c03b8b4f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,6 +288,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95563458540001214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212036334371566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31b102ea2aca91647a2b40d592272caa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114513349964978650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +343,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1416616956166352}
   serializedVersion: 5
   lengthInSec: 3
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 0
