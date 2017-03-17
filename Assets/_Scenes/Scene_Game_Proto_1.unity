@@ -19113,7 +19113,7 @@ Prefab:
     - target: {fileID: 114998018146904314, guid: 08aca341c68699b49b6c5823f9623b29,
         type: 2}
       propertyPath: startingHealth
-      value: 20
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4904385440202350, guid: 08aca341c68699b49b6c5823f9623b29, type: 2}
       propertyPath: m_RootOrder
@@ -19302,7 +19302,7 @@ Prefab:
     - target: {fileID: 114998018146904314, guid: 08aca341c68699b49b6c5823f9623b29,
         type: 2}
       propertyPath: startingHealth
-      value: 20
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114411170053805338, guid: 08aca341c68699b49b6c5823f9623b29,
         type: 2}
